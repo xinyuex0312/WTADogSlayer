@@ -1,0 +1,244 @@
+281190:2,6,;279258:6,;327596:6,;2716:6,;347673:6,;415747:6,;343614:0,2,5,6,;356812:2,5,6,;382921:6,;291145:2,5,6,;377948:2,6,;345982:2,5,6,;357040:2,5,6,;388028:0,2,5,6,7,;393191:2,5,6,;400188:2,6,;400565:2,6,;382588:2,6,;413448:0,6,;483071:;15377:2,6,;2052:2,6,;2723:;18332:0,2,5,6,;226944:0,6,;6484:;2074:0,2,6,;18302:0,2,5,6,;14538:;2000:;2187:;353713:0,6,;13337:0,2,5,6,;1904:;349072:2,6,;397944:;7441:;2276:;395828:2,6,;9117:6,;423436:2,6,;380025:6,;272125:;324785:2,6,;413761:6,;469213:6,;
+
+
+
+
+
+Mozilla/5.=Mozilla/5.0 (Linux; Android 7.1.2; SM-G900F Build/N2G47H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.90 Safari/537.36 Html5Plus/1.0 (Immersed/24.0)
+
+
+"is_distribut=1; __ancc_token=oCChOGuCDGRcemELo5SYFA==; PHPSESSID=s7osd3jjqo61q8u2cfub5bf0n1; clicaptcha_text=%E9%97%B4%2C%E4%B8%BE%2C%E8%89%B2; user_id=279258; uname=xiewei309"
+
+"is_distribut=1; __ancc_token=oCChOGuCDGRcemELo5SYFA==; PHPSESSID=55cp4c57o8r36a12nthoff77n4; clicaptcha_text=%E6%95%A3%2C%E5%AF%A8%2C%E6%99%AE; user_id=281190; uname=xyxie; p_notice_close=true"
+
+
+Accept: application/json, text/javascript, */*; q=0.01
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://203.107.42.6
+Referer: http://203.107.42.6/order/zllindex/status/2.html
+User-Agent: Mozilla/5.=Mozilla/5.0 (Linux; Android 7.1.2; SM-G900F Build/N2G47H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.90 Safari/537.36 Html5Plus/1.0 (Immersed/24.0)
+X-Requested-With: XMLHttpRequest
+
+
+
+
+
+var users = new Array();
+
+users[0]="";
+users[1]="17320564204,123456li";
+users[2]="13216933384,gl123456";
+users[3]="18861554985,123456zg";
+users[4]="18942233862,clz870505";
+users[5]="13701196786,pjw906936";
+users[6]="13765234045,721188";
+users[7]="18374487322,xw17053";
+users[8]="18773205546,xw17053";
+users[9]="13912366199,2197wxth";
+users[10]="13812078603,509703zg";
+users[11]="13665189699,gl123456";
+users[12]="13908456961,y123456";
+users[13]="18635625916,cy710928";
+users[14]="18825062286,m19890211";
+users[15]="13306180961,2197wxth";
+users[16]="13702251193,123456";
+users[17]="13861880147,wsp133579";
+users[18]="18061978642,509703zg";
+users[19]="13382888037,121212";
+
+users[50]="13812501188,sqh336699";
+users[51]="13013636188,jyt123456";
+users[52]="13812510339,927088";
+users[53]="15950428085,yy513416";
+users[54]="15306190926,860310qq";
+users[55]="18956296289,aijia1970";
+users[56]="13345627289,mm700502";
+users[57]="13771091065,Mao865677";
+users[58]="13093028558,wl199654";
+users[59]="13771523355,161109";
+users[60]="13771459227,966227";
+users[61]="18961881161,860310qq";
+users[62]="13511647696,670113";
+users[63]="13771493547,mao147258";
+users[64]="13812052885,aijia1970";
+
+var userIndex = 0;
+
+var inputString = users[userIndex];
+document.getElementById("username").value = inputString.split(",")[0];
+document.getElementById("password").value = inputString.split(",")[1];
+
+$('#qnlogin').click(function(){
+			$('#clicaptcha-submit-info').clicaptcha({
+				src: '/clicaptcha/clicanpt.php',
+				callback: function(){
+					submitverify();
+				}
+			});
+		});
+document.getElementById("qnlogin").click();
+
+
+
+
+var xhr1 = new XMLHttpRequest();
+var jsonStr;
+xhr1.onload=function(){jsonStr=this.responseText};
+xhr1.open("GET","http://203.107.42.6/order/zllajaxindex.html");
+xhr1.setRequestHeader("Accept","application/json, text/javascript, */*; q=0.01");
+xhr1.setRequestHeader("X-Requested-With","XMLHttpRequest");
+xhr1.send();
+
+var xhr2 = new XMLHttpRequest();
+xhr2.onload=function(){console.log(this.responseText)};
+xhr2.open("POST","http://203.107.42.6/order/zllindex.html?page=1");
+xhr2.setRequestHeader("Accept","application/json, text/javascript, */*; q=0.01");
+xhr2.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+xhr2.setRequestHeader("X-Requested-With","XMLHttpRequest");
+xhr2.send("status=2&ifloadold=2");
+
+
+
+var orderAmount = 0;
+var bill = 0;
+
+var s = "";
+
+var dlyJson = JSON.parse(jsonStr);
+s+="------领养中------\n";
+for(var i in dlyJson){
+var tempdate = new Date(dlyJson[i].buy_time*1000);
+if(userIndex<50){
+if(dlyJson[i].profit_cycle_show=="1天/5%"){
+s+="转让时间: "+tempdate.getFullYear()+"-"+(tempdate.getMonth()+1)+"-"+tempdate.getDate()+" "+tempdate.getHours()+":"+tempdate.getMinutes()+":"+tempdate.getSeconds()+"       金额:"+dlyJson[i].order_amount+"        收益:"+dlyJson[i].profit_cycle_show+"       实际收益:"+Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100)+"       代理收益:"+Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100*0.2)+"\n";
+
+orderAmount += 1;
+bill += Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100*0.2);
+}
+else{
+s+="转让时间: "+tempdate.getFullYear()+"-"+(tempdate.getMonth()+1)+"-"+tempdate.getDate()+" "+tempdate.getHours()+":"+tempdate.getMinutes()+":"+tempdate.getSeconds()+"       金额:"+dlyJson[i].order_amount+"        收益:"+dlyJson[i].profit_cycle_show+"       实际收益:"+Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100)+"       代理收益:"+Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100*0.15)+"\n";
+
+orderAmount += 1;
+bill += Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100*0.15);
+}
+}
+           
+else{
+s+="转让时间: "+tempdate.getFullYear()+"-"+(tempdate.getMonth()+1)+"-"+tempdate.getDate()+" "+tempdate.getHours()+":"+tempdate.getMinutes()+":"+tempdate.getSeconds()+"       金额:"+dlyJson[i].order_amount+"        收益:"+dlyJson[i].profit_cycle_show+"       实际收益:"+Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100)+"       代理收益:"+Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100*0.15)+"\n";
+
+orderAmount += 1;
+bill += Math.floor(dlyJson[i].order_amount*dlyJson[i].profit_cycle_show.split("/")[1].split("%")[0]/100*0.15);
+}
+
+}
+if(orderAmount==0){
+s+="无领养中记录\n";
+}
+
+
+var wfparse = xhr2.response;
+var jsont = JSON.parse(wfparse);
+var doms = $.parseHTML(jsont.data.html);
+var datet = new Date()
+
+s+="------已领养------\n";
+for(var i=0;i<$(doms).find("ul").length;i++){
+var tm = $(doms).find("ul li b")[i*4+1].innerText;
+var tm1=$(doms).find("ul li")[i*5+4].innerText;
+var tm2=$(doms).find("ul li b")[i*4+2].innerText;
+
+
+if(tm1.substring(10,15).split("-")[0]==datet.getMonth()+1&&tm1.substring(10,15).split("-")[1]==datet.getDate()){     
+if(userIndex<50){
+if(tm1.substring(16).split(":")[0]==20&&tm1.substring(16).split(":")[1]>=0&&tm1.substring(16).split(":")[1]<30){
+s+=tm1+"    金额:"+tm+"    收益:"+tm2+"            实际收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm)+"    代理收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm*0.2)+"\n";
+bill += Math.floor(tm2.split("/")[1].split("%")[0]/100*tm*0.2);
+orderAmount += 1;
+}
+else{
+s+=tm1+"    金额:"+tm+"    收益:"+tm2+"            实际收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm)+"    代理收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm*0.15)+"\n";
+bill += Math.floor(tm2.split("/")[1].split("%")[0]/100*tm*0.15);
+orderAmount += 1;
+}
+}
+     
+else{s+=tm1+"    金额:"+tm+"    收益:"+tm2+"            实际收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm)+"    代理收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm*0.15)+"\n";
+bill += Math.floor(tm2.split("/")[1].split("%")[0]/100*tm*0.15);
+orderAmount += 1;}
+
+}
+}
+
+console.log(s+userIndex+"号今日成功代理抢狗"+orderAmount+"只,代理Bill为"+bill);
+
+
+
+
+
+
+
+
+
+var wfparse = xhr2.response;
+var jsont = JSON.parse(wfparse);
+var doms = $.parseHTML(jsont.data.html);
+var datet = new Date()
+
+for(var i=0;i<$(doms).find("ul").length;i++){
+var tm = $(doms).find("ul li b")[i*4+1].innerText;
+var tm1=$(doms).find("ul li")[i*5+4].innerText;
+var tm2=$(doms).find("ul li b")[i*4+2].innerText;
+
+console.log(tm1+"    金额:"+tm+"    收益:"+tm2+"            实际收益:"+Math.floor(tm2.split("/")[1].split("%")[0]/100*tm));
+
+}
+
+
+
+
+
+
+var users = new Array();
+
+users[0]="15606158060,09065038206";//心悦主
+users[1]="13095764603,xinyuex24242";//心悦副1
+users[2]="13025933843,xinyuex24242";//心悦副2
+users[3]="13093031628,691106xw";//诸主
+users[4]="13706175123,691106gg";//诸副1
+users[5]="18601489394,691106zyf";//诸副2
+users[6]="15895925029,19940502";//金浩
+users[7]="19922949707,a123456"//抢狗9001
+users[8]="15222177508,mymm964775934"//抢狗9002
+users[9]="15104460563,zcw123456789"//抢狗9003
+users[10]="14718018950,mz109105"//抢狗9004
+users[11]="13960707902,TM1987"//抢狗9005
+users[12]="15723185707,a123456"//抢狗9006
+
+
+var userIndex = 0;
+
+var inputString = users[userIndex];
+document.getElementById("username").value = inputString.split(",")[0];
+document.getElementById("password").value = inputString.split(",")[1];
+
+$('#qnlogin').click(function(){
+			$('#clicaptcha-submit-info').clicaptcha({
+				src: '/clicaptcha/clicanpt.php',
+				callback: function(){
+					submitverify();
+				}
+			});
+		});
+document.getElementById("qnlogin").click();
+
+
+
+
+
+
+
+主角是电脑专业的毕业生，对朝九晚五的上班作息十分恐惧，因此对于上班十分抗拒，每天靠做些小项目赚钱，但是最近一直没接到什么活，有一天一个客户找他在暗网上找一份资料，主角对于暗网也只是知道，并没有实际有什么接触，但是这个客户给的酬金很高，所以主角是用了点对点浏览器并进行了一些改进后到暗网上找这份资料，但是主角发现这份资料在暗网上并没有任何搜索结果，于是主角向客户询问，客户并没有任何回答只是给了一个暗网的链接。主角点开链接后发现这是一整套的测试，测试内容从天文到心理都是专家级别才能解答的问题，并且网上并没有任何关于这些问题的答案，但是主角这时候已经没钱吃饭了，为了得到酬金，主角用自己的专业知识破解了网站的网页服务器，获得了资料，当主角把资料发到客户邮箱时，客户说需要当面把钱交给主角，主角需要自己把客户的住址找到，主角最后找到了客户的住址，并且发现客户只是个假身份，客户是一个数字情报部门的主管，正在招募一批新人黑客，主角通过了了三级测试，获得了组长的职位。
+Zhǔjiǎo shì diànnǎo zhuānyè de bìyè shēng, duì cháo jiǔ wǎn wǔ de shàngbān zuòxí shífēn kǒngjù, yīncǐ duìyú shàngbān shífēn kàngjù, měitiān kào zuò xiēxiǎo xiàngmù zhuànqián, dànshì zuìjìn yīzhí méi jiē dào shénme huó, yǒu yītiān yīgè kèhù zhǎo tā zài àn wǎngshàng zhǎo yī fèn zīliào, zhǔjiǎo duìyú àn wǎng yě zhǐshì zhīdào, bìng méiyǒu shíjì yǒu shé me jiēchù, dànshì zhège kèhù gěi de chóujīn hěn gāo, suǒyǐ zhǔjiǎo shì yòngle diǎnduìdiǎn liúlǎn qì bìng jìnxíngle yīxiē gǎijìn hòu dào àn wǎngshàng zhǎo zhè fèn zīliào, dànshì zhǔjiǎo fāxiàn zhè fèn zīliào zài àn wǎngshàng bìng méiyǒu rènhé sōusuǒ jiéguǒ, yúshì zhǔjiǎo xiàng kèhù xúnwèn, kèhù bìng méiyǒu rènhé huídá zhǐshì gěile yīgè àn wǎng de liànjiē. Zhǔjiǎo diǎn kāi liànjiē hòu fāxiàn zhè shì yī zhěngtào de cèshì, cèshì nèiróng cóng tiānwén dào xīnlǐ dōu shì zhuānjiā jíbié cáinéng jiědá de wèntí, bìngqiě wǎngshàng bìng méiyǒu rènhé guānyú zhèxiē wèntí de dá'àn, dànshì zhǔjiǎo zhè shíhòu yǐjīng méi qián chīfànle, wèi liǎo dédào chóujīn, zhǔjiǎo yòng zìjǐ de zhuānyè zhīshì pòjiěle wǎngzhàn de wǎngyè fúwùqì, huòdéle zīliào, dāng zhǔjiǎo bǎ zīliào fā dào kèhù yóuxiāng shí, kèhù shuō xūyào dāngmiàn bǎ qián jiāo gěi zhǔjiǎo, zhǔjiǎo xūyào zìjǐ bǎ kèhù de zhùzhǐ zhǎodào, zhǔjiǎo zuìhòu zhǎodàole kèhù de zhùzhǐ, bìngqiě fāxiàn kèhù zhǐshì gè jiǎ shēnfèn, kèhù shì yīgè shùzì qíngbào bùmén de zhǔguǎn, zhèngzài zhāomù yī pī xīnrén hēikè, zhǔjiǎo tōngguòliǎoliǎo sān jí cèshì, huòdéle zǔ zhǎng de zhíwèi.
+Show more
+430/5000
+主人公はコンピュータ専門の卒業生で、9時から5時まで仕事をすることをとても怖がっているので仕事には非常に抵抗し、毎日小さなプロジェクトをやってお金を稼いでいますが、最近は仕事を受けていません。一片の情報を探して、主人公はダークネットについてしか知りません、そして実際の接触はありません、しかしこの顧客によって与えられる報酬は非常に高いです、そこで主人公はピアツーピアブラウザを使い、ダークネットワークでこの情報を見つけるためにいくつかの改良を行いました。しかし、主人公はこの情報がダークネットワーク上で検索結果を持っていないことを発見したので、主人公は顧客に尋ねた、顧客は何の答えもないがダークネットワークへのリンクを単に与えた。テストの内容は天文学から心理学までであり、質問は専門家レベルで回答されていますが、インターネット上でこれらの質問に対する回答はありませんが、現時点では食事をするお金はありません。主人公は自分の専門知識を使ってウェブサイトのウェブサーバーをクラックし、その情報を入手し、その情報を顧客のメールボックスに送ると、顧客はそのお金を主人公に引き渡す必要があると言います。最後に顧客の住所を発見し、顧客は単なる偽のアイデンティティであることを発見し、顧客は新しい人々のハッカーのグループを募集している、主人公は3つのレベルのテストに合格し、チームリーダーの地位を獲得した。

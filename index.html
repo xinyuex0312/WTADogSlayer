@@ -1,0 +1,110 @@
+<head>
+    <meta charset="UTF-8">
+        <title>WTADogSlayer</title>
+</head>
+<body onload="window_onload();">
+    <script src="myScript.js"></script>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <div id="div3" style="display:none;background-color:beige;width:250;height:50;border:3px solid #56F"></div>
+    <div id="newItem" class="gray">ActivityID:</div>
+    <div id="addDiv" class="hide">
+        <input type="text" id="aid" readonly = true/>
+        <a>当前时间:  </a><label id = "ctime"/>
+    </div>
+    
+    <div id="taskItemList">
+        <div class="taskItem">
+            <label class="on"></label><span class="taskTitle">NewMission</span>
+            <input type="file" id="tablefiles" accept=".json" style="display:inline" onchange="iptTable()"/>
+            <input type="text" id = "logArea"></input>
+        </div>
+        <div class="taskItem" >
+            <a>网络连接状态:</a><input type="text" id = "socketStatus" readonly = true />
+        </div>
+        <div>
+            <a>当前的日期:</a><input type="text" id = "todayDate" readonly = true />
+            <a>活动表日期:</a><input type="text" id = "tableDate" readonly = true />
+            <button onclick="getActivityIds(document.getElementById('logArea').value)" id = "gaid" disabled = true>生成活动表</button>
+            <button onclick="updateActivityIds()" id = "plus">更新活动表</button>
+        </div>
+        
+        <div>
+            <button onclick="reset()" id = "reset" disabled = false>重置网络接口</button>
+            
+            <button onclick="sendSlayer()" id = "doo">抢狗</button>
+            
+            <button onclick="sendChecker()" id = "doc">查询结果</button>
+        </div>
+        
+        <label>时差:</label>
+        
+        <select id = "timeZoneOffsetType">
+            <option value ="plus">加</option>
+            <option value ="minus">减</option>
+        </select>
+        <select id = "timeZoneOffsetHour">
+            
+        </select>
+        <label>小时</label>
+        </div>
+        
+        <div>
+        <label>偏移时间:</label>
+        <select id = "offsetType">
+            <option value ="before">提前</option>
+            <option value ="after">延后</option>
+        </select>
+        <select id = "offsetMinutes">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+        </select>
+        <label>分钟</label>
+        <select id = "offsetSeconds">
+            
+        </select>
+        </input>
+        <label>秒</label>
+        
+        <button onclick="sendAutoSlayer()" id = "autoOn">自动抢狗</button>
+        <button onclick="stopAutoSlayer()" id = "autoOff" disabled = true>停止自动抢狗</button>
+        <label id="autoMessage"></label>
+        <div>
+            <button onclick="sendSupervisor()" id = "supervisorOn">托管</button>
+            <button onclick="stopSupervisor()" id = "supervisorOff" disabled = true>停止托管</button>
+            <label id="supervisorLog"></label>
+        </div>
+        <table border = "1">
+            <tbody id="tbody0">
+            </tbody>
+        </table>
+        <table border = "1">
+            <tbody id="tbody1">
+            </tbody>
+        </table>
+        <div>
+            <input type="file" id="files" accept=".json" style="display:inline" onchange="ipt()"/>
+            
+        </div>
+        
+    </div>
+    
+    
+</body>
